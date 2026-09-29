@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>The Confession Room | Real Stories. Honest Conversations. No Judgement.</title>
+  <title>The Confession Room | Real Stories. Honest Conversations.</title>
 
-  <meta name="description" content="The Confession Room — a place to share real experiences, honest stories and personal confessions without judgement.">
+  <meta name="description" content="The Confession Room is a place to anonymously share real stories, secrets, experiences and lessons without judgement.">
 
   <style>
     * {
@@ -21,22 +21,29 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f6f3ef;
-      color: #292522;
+      background: #f7f7f9;
+      color: #222;
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
     header {
-      background: #211c1a;
-      color: white;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      background: #17171c;
+      color: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
 
     .nav-container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
       padding: 16px 20px;
       display: flex;
@@ -46,39 +53,46 @@
     }
 
     .logo {
-      font-family: Georgia, serif;
-      font-size: 1.45rem;
+      font-size: 23px;
       font-weight: bold;
-      white-space: nowrap;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #d8a65a;
     }
 
     nav {
       display: flex;
       gap: 22px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      align-items: center;
     }
 
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
+      color: #ddd;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
     nav a:hover {
-      color: #d9b78c;
+      color: #d8a65a;
+    }
+
+    .nav-button {
+      background: #d8a65a;
+      color: #17171c !important;
+      padding: 9px 15px;
+      border-radius: 7px;
+      font-weight: bold;
     }
 
     /* HERO */
 
     .hero {
-      background:
-        linear-gradient(rgba(33, 28, 26, 0.86), rgba(33, 28, 26, 0.86)),
-        radial-gradient(circle at top right, #70594a, #211c1a 60%);
+      background: linear-gradient(135deg, #202027, #34343e);
       color: white;
       text-align: center;
-      padding: 100px 20px 95px;
+      padding: 95px 20px 90px;
     }
 
     .hero-content {
@@ -87,32 +101,51 @@
     }
 
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(2.5rem, 7vw, 4.7rem);
-      margin-bottom: 18px;
-      line-height: 1.1;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #d8a65a;
     }
 
     .hero p {
-      font-size: 1.15rem;
-      color: #ddd5ce;
+      color: #d7d7dc;
+      font-size: 19px;
       max-width: 650px;
-      margin: 0 auto 20px;
+      margin: 0 auto 32px;
     }
 
-    .hero-button {
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
       display: inline-block;
-      background: #c69c6d;
-      color: white;
-      text-decoration: none;
-      padding: 14px 27px;
-      border-radius: 5px;
+      padding: 13px 21px;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
     }
 
-    .hero-button:hover {
-      background: #ad8053;
+    .button-primary {
+      background: #d8a65a;
+      color: #17171c;
+    }
+
+    .button-secondary {
+      border: 1px solid #777;
+      color: white;
+      background: transparent;
+    }
+
+    .button:hover {
       transform: translateY(-2px);
     }
 
@@ -123,425 +156,430 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1150px;
       margin: auto;
     }
 
-    .section-title {
+    .section-heading {
       text-align: center;
-      font-family: Georgia, serif;
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: #302825;
+      max-width: 700px;
+      margin: 0 auto 42px;
     }
 
-    .section-intro {
-      max-width: 680px;
-      margin: 0 auto 45px;
-      text-align: center;
-      color: #6d625c;
+    .section-heading h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
     }
 
-    /* WELCOME */
-
-    .welcome {
-      background: #fff;
+    .section-heading p {
+      color: #666;
     }
 
-    .welcome-grid {
+    /* INTRO CARDS */
+
+    .intro-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      margin-top: 40px;
+      gap: 22px;
     }
 
-    .welcome-card {
-      background: #f7f3ef;
-      border-radius: 8px;
-      padding: 30px 24px;
+    .intro-card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
       text-align: center;
-      border: 1px solid #e8dfd7;
     }
 
-    .welcome-card .icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
+    .intro-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
     }
 
-    .welcome-card h3 {
-      font-family: Georgia, serif;
-      margin-bottom: 10px;
+    .intro-card h3 {
+      margin-bottom: 8px;
     }
 
-    .welcome-card p {
-      color: #6d625c;
-      font-size: 0.95rem;
+    .intro-card p {
+      color: #666;
+      font-size: 15px;
     }
 
     /* STORIES */
 
-    .stories {
-      background: #f0ebe5;
+    #stories {
+      background: #eeeeF2;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .category-button {
+      border: 1px solid #d3d3d8;
+      background: white;
+      color: #444;
+      padding: 9px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .category-button:hover,
+    .category-button.active {
+      background: #202027;
+      color: white;
+      border-color: #202027;
     }
 
     .stories-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 900px;
-      margin: auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
     .story-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 15px;
       overflow: hidden;
-      border: 1px solid #ded4ca;
-      box-shadow: 0 7px 25px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
     }
 
     .story-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     }
 
-    .story-card-top {
-      background: #302724;
+    .story-top {
+      background: #202027;
       color: white;
-      padding: 24px;
+      padding: 22px;
     }
 
-    .story-number {
-      font-size: 0.75rem;
+    .story-category {
+      display: inline-block;
+      background: #d8a65a;
+      color: #202027;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 14px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #c69c6d;
-      margin-bottom: 8px;
+      letter-spacing: 0.5px;
     }
 
-    .story-card h3 {
-      font-family: Georgia, serif;
-      font-size: 1.45rem;
-      line-height: 1.3;
+    .story-top h3 {
+      font-size: 20px;
+      line-height: 1.35;
     }
 
-    .story-card-body {
-      padding: 25px;
+    .story-body {
+      padding: 22px;
+      flex-grow: 1;
+    }
+
+    .story-body p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
     .story-meta {
-      font-size: 0.82rem;
-      color: #8a7d74;
-      margin-bottom: 15px;
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 16px;
     }
 
-    .story-excerpt {
-      color: #5f554f;
-      margin-bottom: 22px;
-    }
-
-    .read-story {
-      display: inline-block;
-      color: #76583d;
-      text-decoration: none;
+    .read-link {
+      color: #a36f25;
       font-weight: bold;
-      border-bottom: 1px solid #76583d;
-      padding-bottom: 2px;
+      font-size: 14px;
+      cursor: pointer;
     }
 
-    .read-story:hover {
-      color: #a47c55;
+    .no-stories {
+      text-align: center;
+      padding: 35px;
+      color: #777;
+      display: none;
     }
 
     /* FULL STORY */
 
     .full-story {
+      display: none;
       background: white;
+      border-radius: 15px;
+      padding: 35px;
+      max-width: 850px;
+      margin: 45px auto 0;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
     }
 
-    .full-story-container {
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .story-label {
-      text-align: center;
-      color: #a47c55;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .full-story.show {
+      display: block;
     }
 
     .full-story h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      text-align: center;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-size: 32px;
+      margin-bottom: 8px;
     }
 
-    .full-story-meta {
-      text-align: center;
-      color: #8a7d74;
-      margin-bottom: 40px;
-    }
-
-    .story-text {
-      font-family: Georgia, serif;
-      font-size: 1.12rem;
-      line-height: 1.9;
-      color: #403833;
-    }
-
-    .story-text p {
+    .full-story .story-details {
+      color: #888;
       margin-bottom: 25px;
+      font-size: 14px;
     }
 
-    .story-note {
-      margin-top: 40px;
-      padding: 18px;
-      background: #f4eee8;
-      border-left: 4px solid #c69c6d;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.9rem;
-      color: #665b54;
+    .full-story p {
+      margin-bottom: 18px;
+      color: #444;
+      font-size: 17px;
+    }
+
+    .editor-note {
+      background: #f5f5f6;
+      border-left: 4px solid #d8a65a;
+      padding: 15px;
+      margin-top: 25px;
+      font-size: 13px;
+      color: #666;
     }
 
     /* SHARE */
 
-    .share {
-      background: #fff;
+    #share {
+      background: white;
     }
 
-    .form-wrapper {
-      max-width: 720px;
+    .form-container {
+      max-width: 750px;
       margin: auto;
-      background: #f8f5f1;
-      padding: 40px;
-      border-radius: 10px;
-      border: 1px solid #e1d8d0;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    }
-
-    .privacy-box {
-      background: #eee7df;
-      border-left: 4px solid #b38b62;
-      padding: 15px 18px;
-      margin-bottom: 30px;
-      font-size: 0.9rem;
-      color: #5f554f;
+      background: #f7f7f9;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
     }
 
     .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 19px;
     }
 
     label {
       display: block;
       font-weight: bold;
       margin-bottom: 7px;
-      color: #352d29;
-    }
-
-    .optional {
-      font-weight: normal;
-      color: #81766f;
-      font-size: 0.85rem;
+      font-size: 14px;
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 13px 14px;
-      border: 1px solid #cfc4bb;
-      border-radius: 5px;
+      padding: 13px;
+      border: 1px solid #d4d4d8;
+      border-radius: 7px;
       background: white;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1rem;
-      color: #292522;
+      font-family: inherit;
+      font-size: 15px;
       outline: none;
     }
 
     input:focus,
     textarea:focus {
-      border-color: #a47c55;
-      box-shadow: 0 0 0 3px rgba(164,124,85,0.12);
+      border-color: #b98438;
+      box-shadow: 0 0 0 2px rgba(216,166,90,0.15);
     }
 
     textarea {
-      min-height: 220px;
+      min-height: 190px;
       resize: vertical;
     }
 
-    .character-note {
-      font-size: 0.8rem;
-      color: #81766f;
-      margin-top: 5px;
+    .checkbox-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 18px 0;
+      font-size: 13px;
+      color: #555;
     }
 
-    .submit-button {
-      width: 100%;
-      border: none;
-      background: #302724;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
+    .checkbox-row input {
+      width: auto;
+      margin-top: 4px;
     }
 
-    .submit-button:hover {
-      background: #4a3c35;
-    }
-
-    .submit-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+    .privacy-note {
+      background: #fff8eb;
+      border: 1px solid #ecd7ae;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #6d5834;
+      margin-bottom: 22px;
     }
 
     .success-message {
       display: none;
-      max-width: 720px;
-      margin: auto;
-      background: #f8f5f1;
-      border: 1px solid #d9cec3;
-      border-radius: 10px;
-      padding: 50px 30px;
       text-align: center;
+      padding: 40px 20px;
     }
 
-    .success-message .check {
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-
-    .success-message h3 {
-      font-family: Georgia, serif;
-      font-size: 1.9rem;
+    .success-message .success-icon {
+      font-size: 50px;
       margin-bottom: 12px;
     }
 
+    .success-message h3 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
     .success-message p {
-      color: #6d625c;
+      color: #666;
     }
 
     .error-message {
       display: none;
-      margin-top: 15px;
-      padding: 12px 15px;
-      background: #f4dddd;
-      color: #8a2f2f;
-      border-radius: 5px;
-      font-size: 0.9rem;
+      background: #fff0f0;
+      border: 1px solid #e2aaaa;
+      color: #8a2929;
+      padding: 13px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      font-size: 14px;
     }
 
     /* ADVICE */
 
-    .advice {
-      background: #f0ebe5;
+    #advice {
+      background: #f7f7f9;
     }
 
-    .advice-box {
-      max-width: 750px;
-      margin: auto;
+    .advice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .advice-card {
       background: white;
-      padding: 40px;
-      border-radius: 9px;
-      border: 1px solid #ded4ca;
+      padding: 27px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
-    .advice-box h3 {
-      font-family: Georgia, serif;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+    .advice-card h3 {
+      margin-bottom: 10px;
     }
 
-    .advice-box p {
-      color: #635953;
-      margin-bottom: 15px;
+    .advice-card p {
+      color: #666;
+      font-size: 15px;
     }
 
     /* ABOUT */
 
-    .about {
-      background: #fff;
+    #about {
+      background: white;
     }
 
     .about-content {
-      max-width: 750px;
+      max-width: 800px;
       margin: auto;
       text-align: center;
     }
 
     .about-content p {
-      color: #635953;
+      color: #666;
       margin-bottom: 18px;
-    }
-
-    .quote {
-      font-family: Georgia, serif;
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #57483f;
-      margin: 35px auto;
-      max-width: 650px;
     }
 
     /* FOOTER */
 
     footer {
-      background: #211c1a;
-      color: #cfc5be;
+      background: #17171c;
+      color: #aaa;
       text-align: center;
       padding: 35px 20px;
-      font-size: 0.85rem;
+    }
+
+    footer .footer-logo {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    footer .footer-logo span {
+      color: #d8a65a;
     }
 
     footer p {
-      margin-bottom: 8px;
+      font-size: 13px;
     }
 
     /* MOBILE */
 
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
 
       .nav-container {
         flex-direction: column;
-        padding: 14px 15px;
+        padding: 14px;
       }
 
       nav {
-        gap: 12px 16px;
+        width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 15px;
       }
 
       nav a {
-        font-size: 0.85rem;
+        font-size: 13px;
       }
 
-      .hero {
-        padding: 75px 20px 70px;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      section {
-        padding: 55px 16px;
-      }
-
-      .welcome-grid,
-      .stories-grid {
+      .intro-grid,
+      .stories-grid,
+      .advice-grid {
         grid-template-columns: 1fr;
       }
 
-      .form-wrapper {
-        padding: 25px 18px;
+      .hero {
+        padding: 70px 20px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+
+      .form-container {
+        padding: 23px;
+      }
+
+      .full-story {
+        padding: 25px;
+      }
+
+      .full-story h2 {
+        font-size: 26px;
       }
     }
   </style>
@@ -554,9 +592,9 @@
   <header>
     <div class="nav-container">
 
-      <div class="logo">
-        The Confession Room
-      </div>
+      <a href="#home" class="logo">
+        The <span>Confession Room</span>
+      </a>
 
       <nav>
         <a href="#home">Home</a>
@@ -570,74 +608,76 @@
   </header>
 
 
-  <!-- HOME -->
+  <!-- HERO -->
 
   <section class="hero" id="home">
 
     <div class="hero-content">
 
-      <h1>The Confession Room</h1>
+      <h1>
+        The <span>Confession Room</span>
+      </h1>
 
       <p>
         Real stories. Honest conversations. No judgement.
       </p>
 
-      <p>
-        Sometimes you just need somewhere to tell your story.
-        A place where you can speak honestly, anonymously and without fear.
-      </p>
+      <div class="hero-buttons">
 
-      <a href="#share" class="hero-button">
-        Share Your Story
-      </a>
+        <a href="#stories" class="button button-primary">
+          Read Real Stories
+        </a>
+
+        <a href="#share" class="button button-secondary">
+          Share Your Story
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- WELCOME -->
+  <!-- INTRO -->
 
-  <section class="welcome">
+  <section>
 
     <div class="container">
 
-      <h2 class="section-title">
-        A Place To Be Heard
-      </h2>
+      <div class="section-heading">
 
-      <p class="section-intro">
-        Life can be complicated. Relationships, family, mistakes,
-        secrets, regrets and experiences can sometimes be difficult
-        to talk about with the people around us.
-      </p>
+        <h2>A Place To Be Heard</h2>
 
-      <div class="welcome-grid">
+        <p>
+          Sometimes you just need somewhere to say what you've never been able to say out loud.
+        </p>
 
-        <div class="welcome-card">
-          <div class="icon">🔒</div>
+      </div>
+
+      <div class="intro-grid">
+
+        <div class="intro-card">
+          <div class="intro-icon">🔒</div>
           <h3>Anonymous</h3>
           <p>
-            Share what you're comfortable sharing without having to
-            reveal your identity.
+            Share your experience without having to reveal who you are.
           </p>
         </div>
 
-        <div class="welcome-card">
-          <div class="icon">💬</div>
+        <div class="intro-card">
+          <div class="intro-icon">💬</div>
           <h3>Honest</h3>
           <p>
-            Real experiences from real people. No need to pretend
-            that everything is perfect.
+            Real experiences from real people, without pretending everything is perfect.
           </p>
         </div>
 
-        <div class="welcome-card">
-          <div class="icon">🤝</div>
+        <div class="intro-card">
+          <div class="intro-icon">🤝</div>
           <h3>No Judgement</h3>
           <p>
-            The purpose is to listen, understand and learn from
-            different experiences.
+            Everyone has a story. This is a place to listen before judging.
           </p>
         </div>
 
@@ -650,31 +690,74 @@
 
   <!-- STORIES -->
 
-  <section class="stories" id="stories">
+  <section id="stories">
 
     <div class="container">
 
-      <h2 class="section-title">
-        Real Stories
-      </h2>
+      <div class="section-heading">
 
-      <p class="section-intro">
-        Real experiences from people willing to share the thoughts,
-        questions and situations they have experienced in their lives.
-      </p>
+        <h2>Real Stories</h2>
+
+        <p>
+          Read experiences shared by people who decided to finally say what they were carrying inside.
+        </p>
+
+      </div>
 
 
-      <div class="stories-grid">
+      <!-- CATEGORY FILTERS -->
 
-        <!-- STORY #1 -->
+      <div class="category-buttons">
 
-        <article class="story-card">
+        <button class="category-button active" data-category="all">
+          All
+        </button>
 
-          <div class="story-card-top">
+        <button class="category-button" data-category="relationships">
+          Relationships
+        </button>
 
-            <div class="story-number">
-              Story #1
-            </div>
+        <button class="category-button" data-category="family">
+          Family
+        </button>
+
+        <button class="category-button" data-category="secrets">
+          Secrets
+        </button>
+
+        <button class="category-button" data-category="heartbreak">
+          Heartbreak
+        </button>
+
+        <button class="category-button" data-category="life">
+          Life & Struggles
+        </button>
+
+        <button class="category-button" data-category="growth">
+          Lessons & Growth
+        </button>
+
+        <button class="category-button" data-category="confessions">
+          Confessions
+        </button>
+
+      </div>
+
+
+      <!-- STORIES GRID -->
+
+      <div class="stories-grid" id="storiesGrid">
+
+
+        <!-- STORY 1 -->
+
+        <article class="story-card" data-category="relationships">
+
+          <div class="story-top">
+
+            <span class="story-category">
+              Relationships
+            </span>
 
             <h3>
               Excitement of Wanting to Share My Wife With Another Man
@@ -682,88 +765,72 @@
 
           </div>
 
-          <div class="story-card-body">
+          <div class="story-body">
 
             <div class="story-meta">
               Anonymous · Relationships
             </div>
 
-            <p class="story-excerpt">
-              I feel the urge to watch my wife sexually satisfied by
-              another man while I watch her enjoy it. I'm not sure if
-              this is normal...
+            <p>
+              I feel the urge to watch my wife sexually satisfied by another man while I watch her enjoy it. I'm not sure if this is normal...
             </p>
 
-            <a
-              href="#story-1"
-              class="read-story"
-            >
+            <span class="read-link" onclick="showStory('story1')">
               Read Full Story →
-            </a>
+            </span>
 
           </div>
 
         </article>
 
+
       </div>
 
-    </div>
 
-  </section>
-
-
-  <!-- FULL STORY #1 -->
-
-  <section class="full-story" id="story-1">
-
-    <div class="full-story-container">
-
-      <div class="story-label">
-        Story #1 · Anonymous
+      <div class="no-stories" id="noStories">
+        There are currently no stories in this category.
       </div>
 
-      <h2>
-        Excitement of Wanting to Share My Wife With Another Man
-      </h2>
 
-      <div class="full-story-meta">
-        Relationships · Anonymous
-      </div>
+      <!-- FULL STORY 1 -->
 
-      <div class="story-text">
+      <article class="full-story" id="story1">
+
+        <h2>
+          Excitement of Wanting to Share My Wife With Another Man
+        </h2>
+
+        <div class="story-details">
+          Anonymous · Relationships
+        </div>
 
         <p>
-          I feel the urge to watch my wife sexually satisfied by
-          another man while I watch her enjoy it. I'm not sure if
-          this is normal.
+          I feel the urge to watch my wife sexually satisfied by another man while I watch her enjoy it. I'm not sure if this is normal.
         </p>
 
         <p>
-          I don't want to be humiliated in any way. I simply want
-          her to experience the kind of pleasure that leaves her
-          completely satisfied.
+          I don't want to be humiliated in any way. I simply want her to experience the kind of pleasure that leaves her completely satisfied.
         </p>
 
         <p>
-          I've never really known how to talk about this feeling,
-          and I'm wondering whether other people have experienced
-          something similar.
+          I've never really known how to talk about this feeling, and I'm wondering whether other people have experienced something similar.
         </p>
 
-      </div>
+        <div class="editor-note">
 
-      <div class="story-note">
-        <strong>Editor's note:</strong>
-        This story was submitted anonymously. Minor edits may be made
-        to submissions for spelling, clarity and readability while
-        preserving the author's intended meaning.
-      </div>
+          <strong>Editor's Note:</strong><br>
 
-      <div style="text-align:center; margin-top:35px;">
-        <a href="#stories" class="hero-button">
-          ← Back To Stories
-        </a>
-      </div>
+          This story was submitted anonymously. Minor edits have been made for clarity while keeping the meaning of the original submission.
+
+        </div>
+
+        <br>
+
+        <button class="button button-primary" onclick="hideStory()">
+          ← Back to Stories
+        </button>
+
+      </article>
 
     </div>
 
@@ -772,53 +839,54 @@
 
   <!-- SHARE YOUR STORY -->
 
-  <section class="share" id="share">
+  <section id="share">
 
     <div class="container">
 
-      <h2 class="section-title">
-        Share Your Story
-      </h2>
+      <div class="section-heading">
 
-      <p class="section-intro">
-        Have something you've always wanted to say?
-        Tell your story. You don't have to give your real name.
-      </p>
+        <h2>Share Your Story</h2>
+
+        <p>
+          Have something you've never been able to say? You can share it anonymously.
+        </p>
+
+      </div>
 
 
-      <div class="form-wrapper" id="form-wrapper">
+      <div class="form-container">
 
-        <div class="privacy-box">
+        <div class="privacy-note">
 
           <strong>Your privacy matters.</strong><br>
 
-          You can leave your name and email blank if you want
-          to submit your story anonymously. Please don't include
-          passwords, financial information, addresses or other
-          highly sensitive personal information.
+          You don't have to provide your real name. Your story will be reviewed before anything is published on The Confession Room.
 
         </div>
 
 
-        <form
-          id="confession-form"
-          action="https://formspree.io/f/xgavdnkv"
-          method="POST"
-        >
+        <div class="error-message" id="formError">
+          Something went wrong while submitting your story. Please try again.
+        </div>
+
+
+        <form id="storyForm"
+              action="https://formspree.io/f/xgavdnkv"
+              method="POST">
+
 
           <div class="form-group">
 
-            <label for="story-title">
+            <label for="title">
               Story Title *
             </label>
 
             <input
               type="text"
-              id="story-title"
-              name="story_title"
+              id="title"
+              name="Story Title"
               placeholder="Give your story a title"
               required
-              maxlength="150"
             >
 
           </div>
@@ -828,15 +896,16 @@
 
             <label for="name">
               Name / Nickname
-              <span class="optional">(optional)</span>
+              <span style="font-weight:normal;color:#888;">
+                (optional)
+              </span>
             </label>
 
             <input
               type="text"
               id="name"
-              name="name"
-              placeholder="You can use a nickname or leave this blank"
-              maxlength="80"
+              name="Name / Nickname"
+              placeholder="Anonymous"
             >
 
           </div>
@@ -846,14 +915,16 @@
 
             <label for="email">
               Email
-              <span class="optional">(optional)</span>
+              <span style="font-weight:normal;color:#888;">
+                (optional)
+              </span>
             </label>
 
             <input
               type="email"
               id="email"
-              name="email"
-              placeholder="Leave blank if you want to remain anonymous"
+              name="Email"
+              placeholder="Your email address"
             >
 
           </div>
@@ -863,16 +934,18 @@
 
             <label for="age">
               Age
-              <span class="optional">(optional)</span>
+              <span style="font-weight:normal;color:#888;">
+                (optional)
+              </span>
             </label>
 
             <input
               type="number"
               id="age"
-              name="age"
-              placeholder="Your age"
+              name="Age"
               min="13"
               max="120"
+              placeholder="Your age"
             >
 
           </div>
@@ -886,37 +959,26 @@
 
             <textarea
               id="story"
-              name="story"
+              name="Your Story"
               placeholder="Tell us what happened..."
               required
-              maxlength="10000"
             ></textarea>
-
-            <div class="character-note">
-              Maximum 10,000 characters.
-            </div>
 
           </div>
 
 
-          <div class="form-group">
+          <div class="checkbox-row">
 
-            <label style="font-weight: normal; display: flex; gap: 10px; align-items: flex-start;">
+            <input
+              type="checkbox"
+              id="permission"
+              name="Permission"
+              value="I give permission for my story to be considered for publication."
+              required
+            >
 
-              <input
-                type="checkbox"
-                name="permission"
-                value="I understand my submission may be reviewed and may be published anonymously."
-                required
-                style="width: auto; margin-top: 5px;"
-              >
-
-              <span>
-                I understand that my submission will be reviewed and,
-                if selected, may be published on The Confession Room.
-                My story may be edited for spelling, clarity or length.
-              </span>
-
+            <label for="permission" style="font-weight:normal;">
+              I understand that my submission will be reviewed and I give permission for my story to be considered for publication on The Confession Room.
             </label>
 
           </div>
@@ -933,61 +995,47 @@
           >
 
 
-          <!-- FORMSPREE SUBJECT -->
-
           <input
             type="hidden"
             name="_subject"
-            value="New Story - The Confession Room"
+            value="New Confession Room Story Submission"
           >
 
 
           <button
             type="submit"
-            class="submit-button"
-            id="submit-button"
+            class="button button-primary"
+            id="submitButton"
+            style="width:100%;"
           >
             Submit My Story
           </button>
 
 
-          <div
-            class="error-message"
-            id="error-message"
-          >
-            Something went wrong while sending your story.
-            Please try again.
-          </div>
-
         </form>
 
-      </div>
 
+        <!-- SUCCESS MESSAGE -->
 
-      <!-- SUCCESS -->
+        <div class="success-message" id="successMessage">
 
-      <div
-        class="success-message"
-        id="success-message"
-      >
+          <div class="success-icon">
+            ✓
+          </div>
 
-        <div class="check">
-          ✓
+          <h3>
+            Thank You For Sharing
+          </h3>
+
+          <p>
+            Your story has been received successfully.
+          </p>
+
+          <p>
+            It will be reviewed before anything is published.
+          </p>
+
         </div>
-
-        <h3>
-          Thank You For Sharing
-        </h3>
-
-        <p>
-          Your story has been submitted successfully.
-          We appreciate you trusting The Confession Room
-          with your experience.
-        </p>
-
-        <p style="margin-top:15px;">
-          Every story is reviewed before it is published.
-        </p>
 
       </div>
 
@@ -998,42 +1046,54 @@
 
   <!-- ADVICE -->
 
-  <section class="advice" id="advice">
+  <section id="advice">
 
     <div class="container">
 
-      <h2 class="section-title">
-        Advice & Conversations
-      </h2>
+      <div class="section-heading">
 
-      <p class="section-intro">
-        Sometimes another person's experience can give us
-        a different perspective on our own situation.
-      </p>
-
-      <div class="advice-box">
-
-        <h3>
-          You're Not The Only One
-        </h3>
+        <h2>Advice & Conversations</h2>
 
         <p>
-          The Confession Room is intended to become a place where
-          people can read about experiences that they may otherwise
-          never hear about.
+          Sometimes sharing is only the beginning. Honest conversations can help us understand ourselves and others.
         </p>
 
-        <p>
-          Stories may lead to conversations, different perspectives
-          and lessons that can help people understand themselves
-          and others a little better.
-        </p>
+      </div>
 
-        <p>
-          Advice and comments should always be shared respectfully.
-          Different people can experience the same situation very
-          differently.
-        </p>
+
+      <div class="advice-grid">
+
+        <div class="advice-card">
+
+          <h3>Relationships</h3>
+
+          <p>
+            Talk openly about the things that can be difficult to say in relationships.
+          </p>
+
+        </div>
+
+
+        <div class="advice-card">
+
+          <h3>Life Experiences</h3>
+
+          <p>
+            Learn from the experiences of people who have walked different paths.
+          </p>
+
+        </div>
+
+
+        <div class="advice-card">
+
+          <h3>Lessons & Growth</h3>
+
+          <p>
+            Sometimes the hardest experiences teach us something about ourselves.
+          </p>
+
+        </div>
 
       </div>
 
@@ -1044,36 +1104,29 @@
 
   <!-- ABOUT -->
 
-  <section class="about" id="about">
+  <section id="about">
 
     <div class="container">
 
-      <h2 class="section-title">
-        About The Confession Room
-      </h2>
+      <div class="section-heading">
+
+        <h2>About The Confession Room</h2>
+
+      </div>
+
 
       <div class="about-content">
 
         <p>
-          The Confession Room was created around a simple idea:
-          everyone has a story.
+          The Confession Room was created as a place where people can share the experiences, thoughts and secrets they may not feel comfortable discussing elsewhere.
         </p>
 
         <p>
-          Some stories are funny. Some are painful.
-          Some are embarrassing. Some are inspiring.
-          And some are things people have never felt comfortable
-          saying out loud.
+          Some stories may be difficult. Some may be unusual. Some may simply be things someone has carried quietly for years.
         </p>
 
-        <div class="quote">
-          "Sometimes telling your story is the first step
-          toward understanding it."
-        </div>
-
         <p>
-          This is a space for honest experiences and respectful
-          conversations — without judgement.
+          The purpose is simple: <strong>to give people a voice and create honest conversations without unnecessary judgement.</strong>
         </p>
 
       </div>
@@ -1087,94 +1140,192 @@
 
   <footer>
 
-    <p>
-      © 2026 The Confession Room
-    </p>
+    <div class="footer-logo">
+      The <span>Confession Room</span>
+    </div>
 
     <p>
       Real stories. Honest conversations. No judgement.
     </p>
 
+    <p style="margin-top:10px;">
+      © 2026 The Confession Room
+    </p>
+
   </footer>
 
 
-  <!-- FORMSPREE SCRIPT -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    const form = document.getElementById("confession-form");
-    const submitButton = document.getElementById("submit-button");
-    const errorMessage = document.getElementById("error-message");
-    const formWrapper = document.getElementById("form-wrapper");
-    const successMessage = document.getElementById("success-message");
+    /* STORY FILTER */
+
+    const categoryButtons =
+      document.querySelectorAll(".category-button");
+
+    const storyCards =
+      document.querySelectorAll(".story-card");
+
+    const noStories =
+      document.getElementById("noStories");
+
+
+    categoryButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        const selectedCategory =
+          button.getAttribute("data-category");
+
+
+        categoryButtons.forEach(function(btn) {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+
+        let visibleStories = 0;
+
+
+        storyCards.forEach(function(card) {
+
+          const storyCategory =
+            card.getAttribute("data-category");
+
+
+          if (
+            selectedCategory === "all" ||
+            storyCategory === selectedCategory
+          ) {
+
+            card.style.display = "flex";
+            visibleStories++;
+
+          } else {
+
+            card.style.display = "none";
+
+          }
+
+        });
+
+
+        if (visibleStories === 0) {
+          noStories.style.display = "block";
+        } else {
+          noStories.style.display = "none";
+        }
+
+
+        document
+          .getElementById("story1")
+          .classList.remove("show");
+
+      });
+
+    });
+
+
+    /* SHOW FULL STORY */
+
+    function showStory(storyId) {
+
+      const story =
+        document.getElementById(storyId);
+
+      story.classList.add("show");
+
+      story.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+
+    /* HIDE FULL STORY */
+
+    function hideStory() {
+
+      document
+        .getElementById("story1")
+        .classList.remove("show");
+
+      document
+        .getElementById("stories")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /* FORMSPREE FORM */
+
+    const form =
+      document.getElementById("storyForm");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+    const formError =
+      document.getElementById("formError");
+
 
     form.addEventListener("submit", async function(event) {
 
       event.preventDefault();
 
-      errorMessage.style.display = "none";
+
+      formError.style.display = "none";
 
       submitButton.disabled = true;
+
       submitButton.textContent = "Submitting...";
 
-      const formData = new FormData(form);
+
+      const formData =
+        new FormData(form);
+
 
       try {
 
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Accept": "application/json"
-          }
-        });
+        const response =
+          await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
 
         if (response.ok) {
 
-          form.reset();
+          form.style.display = "none";
 
-          formWrapper.style.display = "none";
           successMessage.style.display = "block";
 
           window.location.hash = "share";
 
         } else {
 
-          let data = {};
-
-          try {
-            data = await response.json();
-          } catch (e) {
-            data = {};
-          }
-
-          if (data.errors) {
-
-            errorMessage.textContent =
-              data.errors.map(error => error.message).join(", ");
-
-          } else {
-
-            errorMessage.textContent =
-              "Something went wrong while sending your story. Please try again.";
-
-          }
-
-          errorMessage.style.display = "block";
-
-          submitButton.disabled = false;
-          submitButton.textContent = "Submit My Story";
+          throw new Error("Submission failed");
 
         }
 
+
       } catch (error) {
 
-        errorMessage.textContent =
-          "There was a connection problem. Please check your internet connection and try again.";
-
-        errorMessage.style.display = "block";
+        formError.style.display = "block";
 
         submitButton.disabled = false;
+
         submitButton.textContent = "Submit My Story";
 
       }
