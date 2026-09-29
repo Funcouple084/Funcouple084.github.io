@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -507,6 +508,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -515,763 +517,156 @@
 
   <div class="nav-container">
 
-    <a href="#home" class="logo">
-      The <span>Confession Room</span>
-    </a>
+```
+<a href="#home" class="logo">
+  The <span>Confession Room</span>
+</a>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#stories">Stories</a>
-      <a href="#share">Share Your Story</a>
-      <a href="#advice">Advice</a>
-      <a href="#about">About</a>
-    </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#stories">Stories</a>
+  <a href="#share">Share Your Story</a>
+  <a href="#advice">Advice</a>
+  <a href="#about">About</a>
+</nav>
+```
 
   </div>
 
 </header>
 
-
 <section class="hero" id="home">
 
   <div class="hero-content">
 
-    <h1>
-      The <span>Confession Room</span>
-    </h1>
+```
+<h1>
+  The <span>Confession Room</span>
+</h1>
 
-    <p>
-      Real stories. Honest conversations. No judgement.
-    </p>
+<p>
+  Real stories. Honest conversations. No judgement.
+</p>
 
-    <div class="hero-buttons">
+<div class="hero-buttons">
 
-      <a href="#stories" class="button button-primary">
-        Read Real Stories
-      </a>
+  <a href="#stories" class="button button-primary">
+    Read Real Stories
+  </a>
 
-      <a href="#share" class="button button-secondary">
-        Share Your Story
-      </a>
+  <a href="#share" class="button button-secondary">
+    Share Your Story
+  </a>
 
-    </div>
+</div>
+```
 
   </div>
 
 </section>
-
 
 <section>
 
   <div class="container">
 
-    <div class="section-heading">
+```
+<div class="section-heading">
 
-      <h2>A Place To Be Heard</h2>
+  <h2>A Place To Be Heard</h2>
 
-      <p>
-        Sometimes you just need somewhere to say what you've never been able to say out loud.
-      </p>
+  <p>
+    Sometimes you just need somewhere to say what you've never been able to say out loud.
+  </p>
 
-    </div>
+</div>
 
-    <div class="intro-grid">
+<div class="intro-grid">
 
-      <div class="intro-card">
-        <div class="intro-icon">🔒</div>
-        <h3>Anonymous</h3>
-        <p>
-          Share your experience without having to reveal who you are.
-        </p>
-      </div>
+  <div class="intro-card">
+    <div class="intro-icon">🔒</div>
+    <h3>Anonymous</h3>
+    <p>
+      Share your experience without having to reveal who you are.
+    </p>
+  </div>
 
-      <div class="intro-card">
-        <div class="intro-icon">💬</div>
-        <h3>Honest</h3>
-        <p>
-          Real experiences from real people, without pretending everything is perfect.
-        </p>
-      </div>
+  <div class="intro-card">
+    <div class="intro-icon">💬</div>
+    <h3>Honest</h3>
+    <p>
+      Real experiences from real people, without pretending everything is perfect.
+    </p>
+  </div>
 
-      <div class="intro-card">
-        <div class="intro-icon">🤝</div>
-        <h3>No Judgement</h3>
-        <p>
-          Everyone has a story. This is a place to listen before judging.
-        </p>
-      </div>
+  <div class="intro-card">
+    <div class="intro-icon">🤝</div>
+    <h3>No Judgement</h3>
+    <p>
+      Everyone has a story. This is a place to listen before judging.
+    </p>
+  </div>
 
-    </div>
+</div>
+```
 
   </div>
 
 </section>
-
 
 <section id="stories">
 
   <div class="container">
 
-    <div class="section-heading">
+```
+<div class="section-heading">
 
-      <h2>Real Stories</h2>
-
-      <p>
-        Read experiences shared by people who decided to finally say what they were carrying inside.
-      </p>
-
-    </div>
-
-
-    <div class="category-buttons" id="categoryButtons">
-
-      <button class="category-button active" data-category="all">
-        All
-      </button>
-
-      <button class="category-button" data-category="relationships">
-        Relationships
-      </button>
-
-      <button class="category-button" data-category="family">
-        Family
-      </button>
-
-      <button class="category-button" data-category="secrets">
-        Secrets
-      </button>
-
-      <button class="category-button" data-category="heartbreak">
-        Heartbreak
-      </button>
-
-      <button class="category-button" data-category="life">
-        Life & Struggles
-      </button>
-
-      <button class="category-button" data-category="growth">
-        Lessons & Growth
-      </button>
-
-      <button class="category-button" data-category="confessions">
-        Confessions
-      </button>
-
-    </div>
-
-
-    <div class="stories-grid" id="storiesGrid"></div>
-
-    <div class="no-stories" id="noStories">
-      There are currently no stories in this category.
-    </div>
-
-
-    <div id="fullStoryContainer"></div>
-
-  </div>
-
-</section>
-
-
-<section id="share">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Share Your Story</h2>
-
-      <p>
-        Have something you've never been able to say? You can share it anonymously.
-      </p>
-
-    </div>
-
-
-    <div class="form-container">
-
-      <div class="privacy-note">
-
-        <strong>Your privacy matters.</strong><br>
-
-        You don't have to provide your real name. Your story will be reviewed before anything is published on The Confession Room.
-
-      </div>
-
-
-      <div class="error-message" id="formError">
-        Something went wrong while submitting your story. Please try again.
-      </div>
-
-
-      <form id="storyForm"
-            action="https://formspree.io/f/xgavdnkv"
-            method="POST">
-
-        <div class="form-group">
-
-          <label for="title">
-            Story Title *
-          </label>
-
-          <input
-            type="text"
-            id="title"
-            name="Story Title"
-            placeholder="Give your story a title"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="name">
-            Name / Nickname
-            <span style="font-weight:normal;color:#888;">
-              (optional)
-            </span>
-          </label>
-
-          <input
-            type="text"
-            id="name"
-            name="Name / Nickname"
-            placeholder="Anonymous"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="email">
-            Email
-            <span style="font-weight:normal;color:#888;">
-              (optional)
-            </span>
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="Email"
-            placeholder="Your email address"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="age">
-            Age
-            <span style="font-weight:normal;color:#888;">
-              (optional)
-            </span>
-          </label>
-
-          <input
-            type="number"
-            id="age"
-            name="Age"
-            min="13"
-            max="120"
-            placeholder="Your age"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="story">
-            Your Story *
-          </label>
-
-          <textarea
-            id="story"
-            name="Your Story"
-            placeholder="Tell us what happened..."
-            required
-          ></textarea>
-
-        </div>
-
-
-        <div class="checkbox-row">
-
-          <input
-            type="checkbox"
-            id="permission"
-            name="Permission"
-            value="I give permission for my story to be considered for publication."
-            required
-          >
-
-          <label for="permission" style="font-weight:normal;">
-            I understand that my submission will be reviewed and I give permission for my story to be considered for publication on The Confession Room.
-          </label>
-
-        </div>
-
-
-        <input
-          type="text"
-          name="_gotcha"
-          style="display:none"
-          tabindex="-1"
-          autocomplete="off"
-        >
-
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Confession Room Story Submission"
-        >
-
-
-        <button
-          type="submit"
-          class="button button-primary"
-          id="submitButton"
-          style="width:100%;"
-        >
-          Submit My Story
-        </button>
-
-      </form>
-
-
-      <div class="success-message" id="successMessage">
-
-        <div class="success-icon">
-          ✓
-        </div>
-
-        <h3>
-          Thank You For Sharing
-        </h3>
-
-        <p>
-          Your story has been received successfully.
-        </p>
-
-        <p>
-          It will be reviewed before anything is published.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="advice">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Advice & Conversations</h2>
-
-      <p>
-        Sometimes sharing is only the beginning. Honest conversations can help us understand ourselves and others.
-      </p>
-
-    </div>
-
-
-    <div class="advice-grid">
-
-      <div class="advice-card">
-
-        <h3>Relationships</h3>
-
-        <p>
-          Talk openly about the things that can be difficult to say in relationships.
-        </p>
-
-      </div>
-
-
-      <div class="advice-card">
-
-        <h3>Life Experiences</h3>
-
-        <p>
-          Learn from the experiences of people who have walked different paths.
-        </p>
-
-      </div>
-
-
-      <div class="advice-card">
-
-        <h3>Lessons & Growth</h3>
-
-        <p>
-          Sometimes the hardest experiences teach us something about ourselves.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="about">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>About The Confession Room</h2>
-
-    </div>
-
-
-    <div class="about-content">
-
-      <p>
-        The Confession Room was created as a place where people can share the experiences, thoughts and secrets they may not feel comfortable discussing elsewhere.
-      </p>
-
-      <p>
-        Some stories may be difficult. Some may be unusual. Some may simply be things someone has carried quietly for years.
-      </p>
-
-      <p>
-        The purpose is simple:
-        <strong>
-          to give people a voice and create honest conversations without unnecessary judgement.
-        </strong>
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<footer>
-
-  <div class="footer-logo">
-    The <span>Confession Room</span>
-  </div>
+  <h2>Real Stories</h2>
 
   <p>
-    Real stories. Honest conversations. No judgement.
+    Read experiences shared by people who decided to finally say what they were carrying inside.
   </p>
 
-  <p style="margin-top:10px;">
-    © 2026 The Confession Room
-  </p>
+</div>
 
-</footer>
 
+<div class="category-buttons" id="categoryButtons">
 
-<!-- IMPORTANT:
-     stories.js contains the stories.
-     It must be loaded before the code below runs.
--->
+  <button class="category-button active" data-category="all">
+    All
+  </button>
 
-<script src="stories.js"></script>
+  <button class="category-button" data-category="relationships">
+    Relationships
+  </button>
 
+  <button class="category-button" data-category="family">
+    Family
+  </button>
 
-<script>
+  <button class="category-button" data-category="secrets">
+    Secrets
+  </button>
 
-  /* =========================
-     STORY SYSTEM
-     ========================= */
+  <button class="category-button" data-category="heartbreak">
+    Heartbreak
+  </button>
 
-  const storiesGrid =
-    document.getElementById("storiesGrid");
+  <button class="category-button" data-category="life">
+    Life & Struggles
+  </button>
 
-  const noStories =
-    document.getElementById("noStories");
+  <button class="category-button" data-category="growth">
+    Lessons & Growth
+  </button>
 
-  const fullStoryContainer =
-    document.getElementById("fullStoryContainer");
+  <button class="category-button" data-category="confessions">
+    Confessions
+  </button>
 
+</div>
 
-  let currentCategory = "all";
 
+<div class="stories-grid" id="storiesGrid"></div>
 
-  function displayStories(category) {
-
-    currentCategory = category;
-
-    storiesGrid.innerHTML = "";
-    fullStoryContainer.innerHTML = "";
-
-    let visibleStories = 0;
-
-
-    stories.forEach(function(story) {
-
-      if (
-        category !== "all" &&
-        story.category !== category
-      ) {
-        return;
-      }
-
-
-      visibleStories++;
-
-
-      const card =
-        document.createElement("article");
-
-      card.className = "story-card";
-
-
-      card.innerHTML = `
-
-        <div class="story-top">
-
-          <span class="story-category">
-            ${story.categoryName}
-          </span>
-
-          <h3>
-            ${story.title}
-          </h3>
-
-        </div>
-
-        <div class="story-body">
-
-          <div class="story-meta">
-            ${story.author} · ${story.categoryName}
-          </div>
-
-          <p>
-            ${story.excerpt}
-          </p>
-
-          <span
-            class="read-link"
-            onclick="showStory('${story.id}')"
-          >
-            Read Full Story →
-          </span>
-
-        </div>
-      `;
-
-
-      storiesGrid.appendChild(card);
-
-    });
-
-
-    if (visibleStories === 0) {
-      noStories.style.display = "block";
-    } else {
-      noStories.style.display = "none";
-    }
-
-  }
-
-
-  function showStory(storyId) {
-
-    const story =
-      stories.find(function(item) {
-        return item.id === storyId;
-      });
-
-
-    if (!story) {
-      return;
-    }
-
-
-    fullStoryContainer.innerHTML = `
-
-      <article class="full-story show">
-
-        <h2>
-          ${story.title}
-        </h2>
-
-        <div class="story-details">
-          ${story.author} · ${story.categoryName}
-        </div>
-
-        ${story.content.map(function(paragraph) {
-          return `<p>${paragraph}</p>`;
-        }).join("")}
-
-        <div class="editor-note">
-
-          <strong>Editor's Note:</strong><br>
-
-          This story was submitted anonymously.
-          Minor edits may have been made for clarity while keeping the meaning of the original submission.
-
-        </div>
-
-        <br>
-
-        <button
-          class="button button-primary"
-          onclick="hideStory()"
-        >
-          ← Back to Stories
-        </button>
-
-      </article>
-    `;
-
-
-    fullStoryContainer.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-
-  function hideStory() {
-
-    fullStoryContainer.innerHTML = "";
-
-    document.getElementById("stories")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-
-  /* CATEGORY BUTTONS */
-
-  document
-    .querySelectorAll(".category-button")
-    .forEach(function(button) {
-
-      button.addEventListener("click", function() {
-
-        document
-          .querySelectorAll(".category-button")
-          .forEach(function(btn) {
-            btn.classList.remove("active");
-          });
-
-
-        button.classList.add("active");
-
-
-        displayStories(
-          button.getAttribute("data-category")
-        );
-
-      });
-
-    });
-
-
-  /* LOAD STORIES */
-
-  displayStories("all");
-
-
-  /* =========================
-     FORMSPREE
-     ========================= */
-
-  const form =
-    document.getElementById("storyForm");
-
-  const submitButton =
-    document.getElementById("submitButton");
-
-  const successMessage =
-    document.getElementById("successMessage");
-
-  const formError =
-    document.getElementById("formError");
-
-
-  form.addEventListener(
-    "submit",
-    async function(event) {
-
-      event.preventDefault();
-
-
-      formError.style.display = "none";
-
-      submitButton.disabled = true;
-
-      submitButton.textContent =
-        "Submitting...";
-
-
-      const formData =
-        new FormData(form);
-
-
-      try {
-
-        const response =
-          await fetch(
-            form.action,
-            {
-              method: "POST",
-              body: formData,
-              headers: {
-                "Accept": "application/json"
-              }
-            }
-          );
-
-
-        if (response.ok) {
-
-          form.style.display = "none";
-
-          successMessage.style.display =
-            "block";
-
-        } else {
-
-          throw new Error(
-            "Submission failed"
-          );
-
-        }
-
-
-      } catch (error) {
-
-        formError.style.display =
-          "block";
-
-        submitButton.disabled =
-          false;
-
-        submitButton.textContent =
-          "Submit My Story";
-
-      }
-
-    });
-
-</script>
-
-</body>
-</html>
+<div class="no-stories" id="noStories">
+```
