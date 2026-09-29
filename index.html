@@ -26,10 +26,6 @@
       line-height: 1.6;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     header {
       background: #211c1a;
       color: white;
@@ -53,7 +49,6 @@
       font-family: Georgia, serif;
       font-size: 1.45rem;
       font-weight: bold;
-      letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
@@ -75,9 +70,7 @@
       color: #d9b78c;
     }
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
       background:
@@ -104,7 +97,7 @@
       font-size: 1.15rem;
       color: #ddd5ce;
       max-width: 650px;
-      margin: 0 auto 32px;
+      margin: 0 auto 20px;
     }
 
     .hero-button {
@@ -123,9 +116,7 @@
       transform: translateY(-2px);
     }
 
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
+    /* GENERAL */
 
     section {
       padding: 75px 20px;
@@ -151,9 +142,7 @@
       color: #6d625c;
     }
 
-    /* =========================
-       HOME
-    ========================= */
+    /* WELCOME */
 
     .welcome {
       background: #fff;
@@ -189,38 +178,139 @@
       font-size: 0.95rem;
     }
 
-    /* =========================
-       STORIES
-    ========================= */
+    /* STORIES */
 
     .stories {
       background: #f0ebe5;
     }
 
-    .story-placeholder {
-      max-width: 700px;
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 900px;
       margin: auto;
-      background: white;
-      border-radius: 9px;
-      padding: 45px 30px;
-      text-align: center;
-      border: 1px solid #ded4ca;
     }
 
-    .story-placeholder h3 {
+    .story-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #ded4ca;
+      box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .story-card-top {
+      background: #302724;
+      color: white;
+      padding: 24px;
+    }
+
+    .story-number {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #c69c6d;
+      margin-bottom: 8px;
+    }
+
+    .story-card h3 {
       font-family: Georgia, serif;
-      font-size: 1.6rem;
+      font-size: 1.45rem;
+      line-height: 1.3;
+    }
+
+    .story-card-body {
+      padding: 25px;
+    }
+
+    .story-meta {
+      font-size: 0.82rem;
+      color: #8a7d74;
+      margin-bottom: 15px;
+    }
+
+    .story-excerpt {
+      color: #5f554f;
+      margin-bottom: 22px;
+    }
+
+    .read-story {
+      display: inline-block;
+      color: #76583d;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #76583d;
+      padding-bottom: 2px;
+    }
+
+    .read-story:hover {
+      color: #a47c55;
+    }
+
+    /* FULL STORY */
+
+    .full-story {
+      background: white;
+    }
+
+    .full-story-container {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .story-label {
+      text-align: center;
+      color: #a47c55;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      font-weight: bold;
       margin-bottom: 12px;
     }
 
-    .story-placeholder p {
-      color: #6d625c;
+    .full-story h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .full-story-meta {
+      text-align: center;
+      color: #8a7d74;
+      margin-bottom: 40px;
+    }
+
+    .story-text {
+      font-family: Georgia, serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      color: #403833;
+    }
+
+    .story-text p {
       margin-bottom: 25px;
     }
 
-    /* =========================
-       SHARE YOUR STORY
-    ========================= */
+    .story-note {
+      margin-top: 40px;
+      padding: 18px;
+      background: #f4eee8;
+      border-left: 4px solid #c69c6d;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      color: #665b54;
+    }
+
+    /* SHARE */
 
     .share {
       background: #fff;
@@ -263,8 +353,7 @@
     }
 
     input,
-    textarea,
-    select {
+    textarea {
       width: 100%;
       padding: 13px 14px;
       border: 1px solid #cfc4bb;
@@ -274,12 +363,10 @@
       font-size: 1rem;
       color: #292522;
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     input:focus,
-    textarea:focus,
-    select:focus {
+    textarea:focus {
       border-color: #a47c55;
       box-shadow: 0 0 0 3px rgba(164,124,85,0.12);
     }
@@ -305,23 +392,16 @@
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .submit-button:hover {
       background: #4a3c35;
-      transform: translateY(-1px);
     }
 
     .submit-button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
-      transform: none;
     }
-
-    /* =========================
-       SUCCESS MESSAGE
-    ========================= */
 
     .success-message {
       display: none;
@@ -347,8 +427,6 @@
 
     .success-message p {
       color: #6d625c;
-      max-width: 550px;
-      margin: auto;
     }
 
     .error-message {
@@ -361,9 +439,7 @@
       font-size: 0.9rem;
     }
 
-    /* =========================
-       ADVICE
-    ========================= */
+    /* ADVICE */
 
     .advice {
       background: #f0ebe5;
@@ -389,9 +465,7 @@
       margin-bottom: 15px;
     }
 
-    /* =========================
-       ABOUT
-    ========================= */
+    /* ABOUT */
 
     .about {
       background: #fff;
@@ -417,9 +491,7 @@
       max-width: 650px;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       background: #211c1a;
@@ -433,9 +505,7 @@
       margin-bottom: 8px;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -465,16 +535,13 @@
         padding: 55px 16px;
       }
 
-      .welcome-grid {
+      .welcome-grid,
+      .stories-grid {
         grid-template-columns: 1fr;
       }
 
       .form-wrapper {
         padding: 25px 18px;
-      }
-
-      .advice-box {
-        padding: 28px 20px;
       }
     }
   </style>
@@ -482,9 +549,7 @@
 
 <body>
 
-  <!-- =========================
-       HEADER / NAVIGATION
-  ========================= -->
+  <!-- HEADER -->
 
   <header>
     <div class="nav-container">
@@ -505,9 +570,7 @@
   </header>
 
 
-  <!-- =========================
-       HERO / HOME
-  ========================= -->
+  <!-- HOME -->
 
   <section class="hero" id="home">
 
@@ -533,9 +596,7 @@
   </section>
 
 
-  <!-- =========================
-       WELCOME
-  ========================= -->
+  <!-- WELCOME -->
 
   <section class="welcome">
 
@@ -587,9 +648,7 @@
   </section>
 
 
-  <!-- =========================
-       STORIES
-  ========================= -->
+  <!-- STORIES -->
 
   <section class="stories" id="stories">
 
@@ -600,23 +659,51 @@
       </h2>
 
       <p class="section-intro">
-        Every person has a story. Some are difficult.
-        Some are surprising. Some may even help someone else
-        realise that they aren't alone.
+        Real experiences from people willing to share the thoughts,
+        questions and situations they have experienced in their lives.
       </p>
 
-      <div class="story-placeholder">
 
-        <h3>Stories Are Coming</h3>
+      <div class="stories-grid">
 
-        <p>
-          We're building a collection of anonymous real-life
-          experiences from people willing to share their stories.
-        </p>
+        <!-- STORY #1 -->
 
-        <a href="#share" class="hero-button">
-          Be One Of The First To Share
-        </a>
+        <article class="story-card">
+
+          <div class="story-card-top">
+
+            <div class="story-number">
+              Story #1
+            </div>
+
+            <h3>
+              Excitement of Wanting to Share My Wife With Another Man
+            </h3>
+
+          </div>
+
+          <div class="story-card-body">
+
+            <div class="story-meta">
+              Anonymous · Relationships
+            </div>
+
+            <p class="story-excerpt">
+              I feel the urge to watch my wife sexually satisfied by
+              another man while I watch her enjoy it. I'm not sure if
+              this is normal...
+            </p>
+
+            <a
+              href="#story-1"
+              class="read-story"
+            >
+              Read Full Story →
+            </a>
+
+          </div>
+
+        </article>
 
       </div>
 
@@ -625,9 +712,65 @@
   </section>
 
 
-  <!-- =========================
-       SHARE YOUR STORY
-  ========================= -->
+  <!-- FULL STORY #1 -->
+
+  <section class="full-story" id="story-1">
+
+    <div class="full-story-container">
+
+      <div class="story-label">
+        Story #1 · Anonymous
+      </div>
+
+      <h2>
+        Excitement of Wanting to Share My Wife With Another Man
+      </h2>
+
+      <div class="full-story-meta">
+        Relationships · Anonymous
+      </div>
+
+      <div class="story-text">
+
+        <p>
+          I feel the urge to watch my wife sexually satisfied by
+          another man while I watch her enjoy it. I'm not sure if
+          this is normal.
+        </p>
+
+        <p>
+          I don't want to be humiliated in any way. I simply want
+          her to experience the kind of pleasure that leaves her
+          completely satisfied.
+        </p>
+
+        <p>
+          I've never really known how to talk about this feeling,
+          and I'm wondering whether other people have experienced
+          something similar.
+        </p>
+
+      </div>
+
+      <div class="story-note">
+        <strong>Editor's note:</strong>
+        This story was submitted anonymously. Minor edits may be made
+        to submissions for spelling, clarity and readability while
+        preserving the author's intended meaning.
+      </div>
+
+      <div style="text-align:center; margin-top:35px;">
+        <a href="#stories" class="hero-button">
+          ← Back To Stories
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SHARE YOUR STORY -->
 
   <section class="share" id="share">
 
@@ -643,16 +786,17 @@
       </p>
 
 
-      <!-- FORM -->
-
       <div class="form-wrapper" id="form-wrapper">
 
         <div class="privacy-box">
+
           <strong>Your privacy matters.</strong><br>
+
           You can leave your name and email blank if you want
           to submit your story anonymously. Please don't include
           passwords, financial information, addresses or other
           highly sensitive personal information.
+
         </div>
 
 
@@ -661,8 +805,6 @@
           action="https://formspree.io/f/xgavdnkv"
           method="POST"
         >
-
-          <!-- STORY TITLE -->
 
           <div class="form-group">
 
@@ -682,8 +824,6 @@
           </div>
 
 
-          <!-- NAME -->
-
           <div class="form-group">
 
             <label for="name">
@@ -702,8 +842,6 @@
           </div>
 
 
-          <!-- EMAIL -->
-
           <div class="form-group">
 
             <label for="email">
@@ -715,13 +853,11 @@
               type="email"
               id="email"
               name="email"
-              placeholder="Leave blank if you want to remain completely anonymous"
+              placeholder="Leave blank if you want to remain anonymous"
             >
 
           </div>
 
-
-          <!-- AGE -->
 
           <div class="form-group">
 
@@ -741,8 +877,6 @@
 
           </div>
 
-
-          <!-- STORY -->
 
           <div class="form-group">
 
@@ -764,8 +898,6 @@
 
           </div>
 
-
-          <!-- CONSENT -->
 
           <div class="form-group">
 
@@ -790,7 +922,7 @@
           </div>
 
 
-          <!-- HONEYPOT SPAM PROTECTION -->
+          <!-- SPAM PROTECTION -->
 
           <input
             type="text"
@@ -801,16 +933,14 @@
           >
 
 
-          <!-- SUBJECT FOR FORMSPREE -->
+          <!-- FORMSPREE SUBJECT -->
 
           <input
             type="hidden"
             name="_subject"
-            value="New Anonymous Story - The Confession Room"
+            value="New Story - The Confession Room"
           >
 
-
-          <!-- SUBMIT -->
 
           <button
             type="submit"
@@ -834,23 +964,28 @@
       </div>
 
 
-      <!-- SUCCESS MESSAGE -->
+      <!-- SUCCESS -->
 
       <div
         class="success-message"
         id="success-message"
       >
 
-        <div class="check">✓</div>
+        <div class="check">
+          ✓
+        </div>
 
-        <h3>Thank You For Sharing</h3>
+        <h3>
+          Thank You For Sharing
+        </h3>
 
         <p>
           Your story has been submitted successfully.
-          We appreciate you trusting The Confession Room with your experience.
+          We appreciate you trusting The Confession Room
+          with your experience.
         </p>
 
-        <p style="margin-top: 15px;">
+        <p style="margin-top:15px;">
           Every story is reviewed before it is published.
         </p>
 
@@ -861,9 +996,7 @@
   </section>
 
 
-  <!-- =========================
-       ADVICE
-  ========================= -->
+  <!-- ADVICE -->
 
   <section class="advice" id="advice">
 
@@ -909,9 +1042,7 @@
   </section>
 
 
-  <!-- =========================
-       ABOUT
-  ========================= -->
+  <!-- ABOUT -->
 
   <section class="about" id="about">
 
@@ -952,9 +1083,7 @@
   </section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -969,9 +1098,7 @@
   </footer>
 
 
-  <!-- =========================
-       FORMSPREE JAVASCRIPT
-  ========================= -->
+  <!-- FORMSPREE SCRIPT -->
 
   <script>
 
@@ -1004,6 +1131,8 @@
 
         if (response.ok) {
 
+          form.reset();
+
           formWrapper.style.display = "none";
           successMessage.style.display = "block";
 
@@ -1011,7 +1140,13 @@
 
         } else {
 
-          const data = await response.json();
+          let data = {};
+
+          try {
+            data = await response.json();
+          } catch (e) {
+            data = {};
+          }
 
           if (data.errors) {
 
@@ -1029,6 +1164,7 @@
 
           submitButton.disabled = false;
           submitButton.textContent = "Submit My Story";
+
         }
 
       } catch (error) {
@@ -1040,6 +1176,7 @@
 
         submitButton.disabled = false;
         submitButton.textContent = "Submit My Story";
+
       }
 
     });
