@@ -285,6 +285,9 @@
       font-weight: bold;
       font-size: 14px;
       cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
     }
 
     .no-stories {
@@ -325,6 +328,17 @@
       font-size: 17px;
     }
 
+    .back-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #a36f25;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 14px;
+    }
+
     .editor-note {
       background: #f5f5f6;
       border-left: 4px solid #d8a65a;
@@ -359,7 +373,8 @@
     }
 
     input,
-    textarea {
+    textarea,
+    select {
       width: 100%;
       padding: 13px;
       border: 1px solid #d4d4d8;
@@ -475,7 +490,6 @@
     }
 
     @media (max-width: 850px) {
-
       .nav-container {
         flex-direction: column;
         padding: 14px;
@@ -514,14 +528,12 @@
 <body>
 
 <header>
-
   <div class="nav-container">
+    <a href="#home" class="logo">
+      The <span>Confession Room</span>
+    </a>
 
 ```
-<a href="#home" class="logo">
-  The <span>Confession Room</span>
-</a>
-
 <nav>
   <a href="#home">Home</a>
   <a href="#stories">Stories</a>
@@ -532,24 +544,20 @@
 ```
 
   </div>
-
 </header>
 
 <section class="hero" id="home">
-
   <div class="hero-content">
+    <h1>
+      The <span>Confession Room</span>
+    </h1>
 
 ```
-<h1>
-  The <span>Confession Room</span>
-</h1>
-
 <p>
   Real stories. Honest conversations. No judgement.
 </p>
 
 <div class="hero-buttons">
-
   <a href="#stories" class="button button-primary">
     Read Real Stories
   </a>
@@ -557,27 +565,22 @@
   <a href="#share" class="button button-secondary">
     Share Your Story
   </a>
-
 </div>
 ```
 
   </div>
-
 </section>
 
 <section>
-
   <div class="container">
 
 ```
 <div class="section-heading">
-
   <h2>A Place To Be Heard</h2>
 
   <p>
     Sometimes you just need somewhere to say what you've never been able to say out loud.
   </p>
-
 </div>
 
 <div class="intro-grid">
@@ -610,24 +613,19 @@
 ```
 
   </div>
-
 </section>
 
 <section id="stories">
-
   <div class="container">
 
 ```
 <div class="section-heading">
-
   <h2>Real Stories</h2>
 
   <p>
     Read experiences shared by people who decided to finally say what they were carrying inside.
   </p>
-
 </div>
-
 
 <div class="category-buttons" id="categoryButtons">
 
@@ -665,8 +663,417 @@
 
 </div>
 
-
 <div class="stories-grid" id="storiesGrid"></div>
 
 <div class="no-stories" id="noStories">
+  There are currently no stories in this category.
+</div>
+
+<div class="full-story" id="fullStory">
+
+  <h2 id="fullStoryTitle"></h2>
+
+  <div class="story-details" id="fullStoryDetails"></div>
+
+  <div id="fullStoryContent"></div>
+
+  <div class="editor-note">
+    <strong>Editor's Note:</strong>
+    Stories are shared anonymously and may be edited slightly for clarity, privacy or length.
+  </div>
+
+  <button class="back-link" id="backToStories">
+    ← Back to all stories
+  </button>
+
+</div>
 ```
+
+  </div>
+</section>
+
+<section id="share">
+
+  <div class="container">
+
+```
+<div class="section-heading">
+
+  <h2>Share Your Story</h2>
+
+  <p>
+    You never know who may need to hear the story you have been carrying.
+  </p>
+
+</div>
+
+<div class="form-container">
+
+  <div class="privacy-note">
+    🔒 <strong>Your privacy matters.</strong>
+    You may submit your story anonymously. Please do not include information that could identify another person without their permission.
+  </div>
+
+  <div class="error-message" id="formError"></div>
+
+  <form id="storyForm">
+
+    <div class="form-group">
+      <label for="storyTitle">Story Title</label>
+      <input
+        type="text"
+        id="storyTitle"
+        name="storyTitle"
+        placeholder="Give your story a title"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="storyCategory">Category</label>
+
+      <select id="storyCategory" name="storyCategory" required>
+
+        <option value="">Select a category</option>
+        <option value="Relationships">Relationships</option>
+        <option value="Family">Family</option>
+        <option value="Secrets">Secrets</option>
+        <option value="Heartbreak">Heartbreak</option>
+        <option value="Life & Struggles">Life & Struggles</option>
+        <option value="Lessons & Growth">Lessons & Growth</option>
+        <option value="Confessions">Confessions</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="storyText">Your Story</label>
+
+      <textarea
+        id="storyText"
+        name="storyText"
+        placeholder="Tell us what happened..."
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="storyName">Name or Anonymous</label>
+
+      <input
+        type="text"
+        id="storyName"
+        name="storyName"
+        placeholder="Anonymous"
+        value="Anonymous"
+      >
+    </div>
+
+    <div class="checkbox-row">
+
+      <input
+        type="checkbox"
+        id="permission"
+        required
+      >
+
+      <label for="permission">
+        I confirm that this is my story and give The Confession Room permission to review and potentially publish it anonymously.
+      </label>
+
+    </div>
+
+    <button
+      type="submit"
+      class="button button-primary"
+      style="width:100%;"
+    >
+      Submit My Story
+    </button>
+
+  </form>
+
+  <div class="success-message" id="successMessage">
+
+    <div class="success-icon">✓</div>
+
+    <h3>Thank You For Sharing</h3>
+
+    <p>
+      Your story has been received. Every submission is reviewed before publication.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<section id="advice">
+
+  <div class="container">
+
+```
+<div class="section-heading">
+
+  <h2>Advice</h2>
+
+  <p>
+    Sometimes another person's experience can help us see our own situation differently.
+  </p>
+
+</div>
+
+<div class="advice-grid">
+
+  <div class="advice-card">
+    <h3>Listen First</h3>
+    <p>
+      Before giving advice, try to understand what someone is really going through.
+    </p>
+  </div>
+
+  <div class="advice-card">
+    <h3>You Are Not Alone</h3>
+    <p>
+      Many people experience struggles they never speak about openly.
+    </p>
+  </div>
+
+  <div class="advice-card">
+    <h3>Be Kind</h3>
+    <p>
+      You may never know how much someone needed a safe place to be heard.
+    </p>
+  </div>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="container">
+
+```
+<div class="section-heading">
+
+  <h2>About The Confession Room</h2>
+
+</div>
+
+<div class="about-content">
+
+  <p>
+    The Confession Room was created as a place where people can share the experiences they may struggle to talk about in everyday life.
+  </p>
+
+  <p>
+    Stories can be about relationships, family, heartbreak, secrets, struggles, mistakes, lessons and personal growth.
+  </p>
+
+  <p>
+    The goal is simple: create a space where people can speak honestly, listen to one another and remember that nobody's life is perfect.
+  </p>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="footer-logo">
+    The <span>Confession Room</span>
+  </div>
+
+  <p>
+    Real stories. Honest conversations. No judgement.
+  </p>
+
+  <p style="margin-top:10px;">
+    © 2026 The Confession Room
+  </p>
+
+</footer>
+
+<script src="stories.js"></script>
+
+<script>
+
+  const storiesGrid = document.getElementById("storiesGrid");
+  const noStories = document.getElementById("noStories");
+
+  const fullStory = document.getElementById("fullStory");
+  const fullStoryTitle = document.getElementById("fullStoryTitle");
+  const fullStoryDetails = document.getElementById("fullStoryDetails");
+  const fullStoryContent = document.getElementById("fullStoryContent");
+  const backToStories = document.getElementById("backToStories");
+
+  const categoryButtons = document.querySelectorAll(".category-button");
+
+  function displayStories(category = "all") {
+
+    storiesGrid.innerHTML = "";
+
+    const filteredStories = stories.filter(function(story) {
+
+      return category === "all" || story.category === category;
+
+    });
+
+    if (filteredStories.length === 0) {
+
+      noStories.style.display = "block";
+
+      return;
+
+    }
+
+    noStories.style.display = "none";
+
+    filteredStories.forEach(function(story) {
+
+      const card = document.createElement("article");
+
+      card.className = "story-card";
+
+      card.innerHTML = `
+
+        <div class="story-top">
+
+          <div class="story-category">
+            ${story.categoryName}
+          </div>
+
+          <h3>
+            ${story.title}
+          </h3>
+
+        </div>
+
+        <div class="story-body">
+
+          <p>
+            ${story.excerpt}
+          </p>
+
+          <div class="story-meta">
+            ${story.author} • ${story.date}
+          </div>
+
+          <button
+            class="read-link"
+            onclick="openStory(${story.id})"
+          >
+            Read Story →
+          </button>
+
+        </div>
+
+      `;
+
+      storiesGrid.appendChild(card);
+
+    });
+
+  }
+
+  function openStory(id) {
+
+    const story = stories.find(function(item) {
+
+      return item.id === id;
+
+    });
+
+    if (!story) return;
+
+    fullStoryTitle.textContent = story.title;
+
+    fullStoryDetails.textContent =
+      story.categoryName + " • " +
+      story.author + " • " +
+      story.date;
+
+    fullStoryContent.innerHTML = "";
+
+    story.content.forEach(function(paragraph) {
+
+      const p = document.createElement("p");
+
+      p.textContent = paragraph;
+
+      fullStoryContent.appendChild(p);
+
+    });
+
+    fullStory.classList.add("show");
+
+    storiesGrid.style.display = "none";
+
+    noStories.style.display = "none";
+
+    fullStory.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }
+
+  backToStories.addEventListener("click", function() {
+
+    fullStory.classList.remove("show");
+
+    storiesGrid.style.display = "grid";
+
+    const activeButton =
+      document.querySelector(".category-button.active");
+
+    const category =
+      activeButton ? activeButton.dataset.category : "all";
+
+    displayStories(category);
+
+    document.getElementById("stories").scrollIntoView({
+      behavior: "smooth"
+    });
+
+  });
+
+  categoryButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+      categoryButtons.forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+      });
+
+      button.classList.add("active");
+
+      fullStory.classList.remove("show");
+
+      storiesGrid.style.display = "grid";
+
+      displayStories(button.dataset.category);
+
+    });
+
+  });
+
+  displayStories();
+
+</script>
+
+</body>
+</html>
