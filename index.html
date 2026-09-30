@@ -125,6 +125,10 @@
       color: #17171c;
     }
 
+    .button-primary:hover {
+      opacity: 0.9;
+    }
+
     .button-secondary {
       border: 1px solid #777;
       color: white;
@@ -414,12 +418,8 @@
       margin-bottom: 22px;
     }
 
-    .success-message,
-    .error-message {
-      display: none;
-    }
-
     .success-message {
+      display: none;
       text-align: center;
       padding: 40px 20px;
     }
@@ -439,6 +439,7 @@
     }
 
     .error-message {
+      display: none;
       background: #fff0f0;
       border: 1px solid #e2aaaa;
       color: #8a2929;
@@ -446,6 +447,14 @@
       border-radius: 7px;
       margin-bottom: 15px;
       font-size: 14px;
+    }
+
+    .submit-status {
+      text-align: center;
+      margin-top: 15px;
+      color: #666;
+      font-size: 14px;
+      display: none;
     }
 
     #advice {
@@ -490,6 +499,7 @@
     }
 
     @media (max-width: 850px) {
+
       .nav-container {
         flex-direction: column;
         padding: 14px;
@@ -529,11 +539,12 @@
 
 <header>
   <div class="nav-container">
-    <a href="#home" class="logo">
-      The <span>Confession Room</span>
-    </a>
 
 ```
+<a href="#home" class="logo">
+  The <span>Confession Room</span>
+</a>
+
 <nav>
   <a href="#home">Home</a>
   <a href="#stories">Stories</a>
@@ -547,17 +558,20 @@
 </header>
 
 <section class="hero" id="home">
+
   <div class="hero-content">
-    <h1>
-      The <span>Confession Room</span>
-    </h1>
 
 ```
+<h1>
+  The <span>Confession Room</span>
+</h1>
+
 <p>
   Real stories. Honest conversations. No judgement.
 </p>
 
 <div class="hero-buttons">
+
   <a href="#stories" class="button button-primary">
     Read Real Stories
   </a>
@@ -565,22 +579,27 @@
   <a href="#share" class="button button-secondary">
     Share Your Story
   </a>
+
 </div>
 ```
 
   </div>
+
 </section>
 
 <section>
+
   <div class="container">
 
 ```
 <div class="section-heading">
+
   <h2>A Place To Be Heard</h2>
 
   <p>
     Sometimes you just need somewhere to say what you've never been able to say out loud.
   </p>
+
 </div>
 
 <div class="intro-grid">
@@ -613,18 +632,22 @@
 ```
 
   </div>
+
 </section>
 
 <section id="stories">
+
   <div class="container">
 
 ```
 <div class="section-heading">
+
   <h2>Real Stories</h2>
 
   <p>
     Read experiences shared by people who decided to finally say what they were carrying inside.
   </p>
+
 </div>
 
 <div class="category-buttons" id="categoryButtons">
@@ -690,6 +713,7 @@
 ```
 
   </div>
+
 </section>
 
 <section id="share">
@@ -720,6 +744,7 @@
 
     <div class="form-group">
       <label for="storyTitle">Story Title</label>
+
       <input
         type="text"
         id="storyTitle"
@@ -732,18 +757,58 @@
     <div class="form-group">
       <label for="storyCategory">Category</label>
 
-      <select id="storyCategory" name="storyCategory" required>
+      <select
+        id="storyCategory"
+        name="storyCategory"
+        required
+      >
 
         <option value="">Select a category</option>
-        <option value="Relationships">Relationships</option>
-        <option value="Family">Family</option>
-        <option value="Secrets">Secrets</option>
-        <option value="Heartbreak">Heartbreak</option>
-        <option value="Life & Struggles">Life & Struggles</option>
-        <option value="Lessons & Growth">Lessons & Growth</option>
-        <option value="Confessions">Confessions</option>
+        <option value="relationships">Relationships</option>
+        <option value="family">Family</option>
+        <option value="secrets">Secrets</option>
+        <option value="heartbreak">Heartbreak</option>
+        <option value="life">Life & Struggles</option>
+        <option value="growth">Lessons & Growth</option>
+        <option value="confessions">Confessions</option>
 
       </select>
+    </div>
+
+    <div class="form-group">
+      <label for="storyAuthor">Name</label>
+
+      <input
+        type="text"
+        id="storyAuthor"
+        name="storyAuthor"
+        placeholder="Anonymous"
+        value="Anonymous"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="storyEmail">Email <span style="font-weight:normal;">(optional)</span></label>
+
+      <input
+        type="email"
+        id="storyEmail"
+        name="storyEmail"
+        placeholder="Leave blank to remain completely anonymous"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="storyAge">Age <span style="font-weight:normal;">(optional)</span></label>
+
+      <input
+        type="number"
+        id="storyAge"
+        name="storyAge"
+        min="13"
+        max="120"
+        placeholder="Your age"
+      >
     </div>
 
     <div class="form-group">
@@ -755,18 +820,7 @@
         placeholder="Tell us what happened..."
         required
       ></textarea>
-    </div>
 
-    <div class="form-group">
-      <label for="storyName">Name or Anonymous</label>
-
-      <input
-        type="text"
-        id="storyName"
-        name="storyName"
-        placeholder="Anonymous"
-        value="Anonymous"
-      >
     </div>
 
     <div class="checkbox-row">
@@ -785,11 +839,16 @@
 
     <button
       type="submit"
+      id="submitButton"
       class="button button-primary"
       style="width:100%;"
     >
       Submit My Story
     </button>
+
+    <div class="submit-status" id="submitStatus">
+      Sending your story...
+    </div>
 
   </form>
 
@@ -800,7 +859,11 @@
     <h3>Thank You For Sharing</h3>
 
     <p>
-      Your story has been received. Every submission is reviewed before publication.
+      Your story has been received and is now awaiting review.
+    </p>
+
+    <p style="margin-top:10px;">
+      Every submission is reviewed before publication.
     </p>
 
   </div>
@@ -831,6 +894,7 @@
 
   <div class="advice-card">
     <h3>Listen First</h3>
+
     <p>
       Before giving advice, try to understand what someone is really going through.
     </p>
@@ -838,6 +902,7 @@
 
   <div class="advice-card">
     <h3>You Are Not Alone</h3>
+
     <p>
       Many people experience struggles they never speak about openly.
     </p>
@@ -845,6 +910,7 @@
 
   <div class="advice-card">
     <h3>Be Kind</h3>
+
     <p>
       You may never know how much someone needed a safe place to be heard.
     </p>
@@ -905,30 +971,74 @@
 
 </footer>
 
+<!-- Supabase -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Existing local stories -->
+
 <script src="stories.js"></script>
 
 <script>
 
-  const storiesGrid = document.getElementById("storiesGrid");
-  const noStories = document.getElementById("noStories");
+  /* =========================================================
+     SUPABASE CONNECTION
+     ========================================================= */
 
-  const fullStory = document.getElementById("fullStory");
-  const fullStoryTitle = document.getElementById("fullStoryTitle");
-  const fullStoryDetails = document.getElementById("fullStoryDetails");
-  const fullStoryContent = document.getElementById("fullStoryContent");
-  const backToStories = document.getElementById("backToStories");
+  const SUPABASE_URL =
+    "https://lmdmqvrmaxjllxxcnnta.supabase.co";
 
-  const categoryButtons = document.querySelectorAll(".category-button");
+  const SUPABASE_KEY =
+    "sb_publishable_-vW_2fFSReR-GlHvFbCMGA_Twgky6Vt";
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+
+  /* =========================================================
+     STORY DISPLAY SYSTEM
+     ========================================================= */
+
+  const storiesGrid =
+    document.getElementById("storiesGrid");
+
+  const noStories =
+    document.getElementById("noStories");
+
+  const fullStory =
+    document.getElementById("fullStory");
+
+  const fullStoryTitle =
+    document.getElementById("fullStoryTitle");
+
+  const fullStoryDetails =
+    document.getElementById("fullStoryDetails");
+
+  const fullStoryContent =
+    document.getElementById("fullStoryContent");
+
+  const backToStories =
+    document.getElementById("backToStories");
+
+  const categoryButtons =
+    document.querySelectorAll(".category-button");
+
 
   function displayStories(category = "all") {
 
     storiesGrid.innerHTML = "";
 
-    const filteredStories = stories.filter(function(story) {
+    const filteredStories =
+      stories.filter(function(story) {
 
-      return category === "all" || story.category === category;
+        return category === "all" ||
+               story.category === category;
 
-    });
+      });
+
 
     if (filteredStories.length === 0) {
 
@@ -938,13 +1048,18 @@
 
     }
 
+
     noStories.style.display = "none";
+
 
     filteredStories.forEach(function(story) {
 
-      const card = document.createElement("article");
+      const card =
+        document.createElement("article");
 
-      card.className = "story-card";
+      card.className =
+        "story-card";
+
 
       card.innerHTML = `
 
@@ -981,46 +1096,63 @@
 
       `;
 
+
       storiesGrid.appendChild(card);
 
     });
 
   }
 
+
   function openStory(id) {
 
-    const story = stories.find(function(item) {
+    const story =
+      stories.find(function(item) {
 
-      return item.id === id;
+        return item.id === id;
 
-    });
+      });
+
 
     if (!story) return;
 
-    fullStoryTitle.textContent = story.title;
+
+    fullStoryTitle.textContent =
+      story.title;
+
 
     fullStoryDetails.textContent =
-      story.categoryName + " • " +
-      story.author + " • " +
+      story.categoryName +
+      " • " +
+      story.author +
+      " • " +
       story.date;
+
 
     fullStoryContent.innerHTML = "";
 
+
     story.content.forEach(function(paragraph) {
 
-      const p = document.createElement("p");
+      const p =
+        document.createElement("p");
 
-      p.textContent = paragraph;
+      p.textContent =
+        paragraph;
 
       fullStoryContent.appendChild(p);
 
     });
 
+
     fullStory.classList.add("show");
 
-    storiesGrid.style.display = "none";
+    storiesGrid.style.display =
+      "none";
 
-    noStories.style.display = "none";
+    noStories.style.display =
+      "none";
+
 
     fullStory.scrollIntoView({
       behavior: "smooth",
@@ -1029,49 +1161,336 @@
 
   }
 
-  backToStories.addEventListener("click", function() {
 
-    fullStory.classList.remove("show");
+  backToStories.addEventListener(
+    "click",
+    function() {
 
-    storiesGrid.style.display = "grid";
+      fullStory.classList.remove(
+        "show"
+      );
 
-    const activeButton =
-      document.querySelector(".category-button.active");
+      storiesGrid.style.display =
+        "grid";
 
-    const category =
-      activeButton ? activeButton.dataset.category : "all";
 
-    displayStories(category);
+      const activeButton =
+        document.querySelector(
+          ".category-button.active"
+        );
 
-    document.getElementById("stories").scrollIntoView({
-      behavior: "smooth"
-    });
 
-  });
+      const category =
+        activeButton
+          ? activeButton.dataset.category
+          : "all";
 
-  categoryButtons.forEach(function(button) {
 
-    button.addEventListener("click", function() {
+      displayStories(category);
 
-      categoryButtons.forEach(function(btn) {
 
-        btn.classList.remove("active");
-
+      document.getElementById(
+        "stories"
+      ).scrollIntoView({
+        behavior: "smooth"
       });
 
-      button.classList.add("active");
+    }
+  );
 
-      fullStory.classList.remove("show");
 
-      storiesGrid.style.display = "grid";
+  categoryButtons.forEach(
+    function(button) {
 
-      displayStories(button.dataset.category);
+      button.addEventListener(
+        "click",
+        function() {
 
-    });
+          categoryButtons.forEach(
+            function(btn) {
 
-  });
+              btn.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          button.classList.add(
+            "active"
+          );
+
+
+          fullStory.classList.remove(
+            "show"
+          );
+
+
+          storiesGrid.style.display =
+            "grid";
+
+
+          displayStories(
+            button.dataset.category
+          );
+
+        }
+      );
+
+    }
+  );
+
 
   displayStories();
+
+
+  /* =========================================================
+     STORY SUBMISSION SYSTEM
+     SUPABASE + FORMSPREE
+     ========================================================= */
+
+  const storyForm =
+    document.getElementById(
+      "storyForm"
+    );
+
+  const submitButton =
+    document.getElementById(
+      "submitButton"
+    );
+
+  const submitStatus =
+    document.getElementById(
+      "submitStatus"
+    );
+
+  const formError =
+    document.getElementById(
+      "formError"
+    );
+
+  const successMessage =
+    document.getElementById(
+      "successMessage"
+    );
+
+
+  storyForm.addEventListener(
+    "submit",
+    async function(event) {
+
+      event.preventDefault();
+
+
+      formError.style.display =
+        "none";
+
+      submitStatus.style.display =
+        "block";
+
+      submitButton.disabled =
+        true;
+
+      submitButton.textContent =
+        "Submitting...";
+
+
+      const title =
+        document.getElementById(
+          "storyTitle"
+        ).value.trim();
+
+
+      const category =
+        document.getElementById(
+          "storyCategory"
+        ).value;
+
+
+      const author =
+        document.getElementById(
+          "storyAuthor"
+        ).value.trim() ||
+        "Anonymous";
+
+
+      const email =
+        document.getElementById(
+          "storyEmail"
+        ).value.trim();
+
+
+      const ageValue =
+        document.getElementById(
+          "storyAge"
+        ).value.trim();
+
+
+      const storyText =
+        document.getElementById(
+          "storyText"
+        ).value.trim();
+
+
+      const age =
+        ageValue
+          ? parseInt(ageValue, 10)
+          : null;
+
+
+      const submissionData = {
+
+        title: title,
+
+        author: author,
+
+        email: email || null,
+
+        age: age,
+
+        category: category,
+
+        story: storyText,
+
+        status: "pending"
+
+      };
+
+
+      try {
+
+        /* -----------------------------------------
+           1. SAVE TO SUPABASE
+           ----------------------------------------- */
+
+        const {
+          error: supabaseError
+        } =
+          await supabaseClient
+            .from("stories")
+            .insert([
+              submissionData
+            ]);
+
+
+        if (supabaseError) {
+
+          throw new Error(
+            "Supabase: " +
+            supabaseError.message
+          );
+
+        }
+
+
+        /* -----------------------------------------
+           2. SEND TO FORMSPREE
+           ----------------------------------------- */
+
+        const formData =
+          new FormData();
+
+
+        formData.append(
+          "title",
+          title
+        );
+
+        formData.append(
+          "author",
+          author
+        );
+
+        formData.append(
+          "email",
+          email
+        );
+
+        formData.append(
+          "age",
+          ageValue
+        );
+
+        formData.append(
+          "category",
+          category
+        );
+
+        formData.append(
+          "story",
+          storyText
+        );
+
+        formData.append(
+          "status",
+          "pending"
+        );
+
+
+        const formspreeResponse =
+          await fetch(
+            "https://formspree.io/f/xgavdnkv",
+            {
+              method: "POST",
+              body: formData,
+              headers: {
+                "Accept":
+                  "application/json"
+              }
+            }
+          );
+
+
+        if (!formspreeResponse.ok) {
+
+          console.warn(
+            "Formspree submission did not succeed."
+          );
+
+        }
+
+
+        /* -----------------------------------------
+           3. SHOW SUCCESS
+           ----------------------------------------- */
+
+        storyForm.style.display =
+          "none";
+
+        submitStatus.style.display =
+          "none";
+
+        successMessage.style.display =
+          "block";
+
+
+      } catch (error) {
+
+        console.error(error);
+
+
+        submitStatus.style.display =
+          "none";
+
+
+        formError.textContent =
+          "We could not submit your story right now. Please try again.";
+
+        formError.style.display =
+          "block";
+
+
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "Submit My Story";
+
+      }
+
+    }
+  );
 
 </script>
 
